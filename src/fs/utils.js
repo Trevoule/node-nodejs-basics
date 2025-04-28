@@ -1,4 +1,4 @@
-import { access } from 'fs/promises';
+import fs from 'fs/promises';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -10,7 +10,7 @@ export const currentDirectoryPath = (folderName, file = '') => {
 
 export const isFileExists = async filePath => {
     try {
-        await access(filePath);
+        await fs.access(filePath);
         return true;
     } catch {
         return false;

@@ -1,6 +1,13 @@
 import fs from 'fs';
 import crypto from 'crypto';
-import { currentDirectoryPath } from './utils.js';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+
+const currentDirectoryPath = (folderName, file = '') => {
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    return join(__dirname, folderName, file);
+};
 
 const calculateHash = async () => {
     const fileToCalculatePath = currentDirectoryPath('files', 'fileToCalculateHashFor.txt');

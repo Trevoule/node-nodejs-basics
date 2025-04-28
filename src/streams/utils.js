@@ -1,8 +1,8 @@
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
-export const currentDirectoryPath = (taskFolderType, folderName, file = '') => {
+export const currentDirectoryPath = (folderName, file = '') => {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = dirname(__filename);
-    return join(__dirname, taskFolderType, folderName, file);
+    return join(__dirname, folderName, file);
 };

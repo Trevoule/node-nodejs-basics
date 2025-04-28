@@ -2,6 +2,7 @@ import path, { dirname } from 'path';
 import { release, version } from 'os';
 import { createServer as createServerHttp } from 'http';
 import { fileURLToPath } from 'url';
+
 import a from './files/a.json' with { type: 'json' };
 import b from './files/b.json' with { type: 'json' };
 import './files/c.cjs';

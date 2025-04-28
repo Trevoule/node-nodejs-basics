@@ -1,11 +1,12 @@
-import { readdir } from 'fs/promises';
-import { currentDirectoryPath } from '../streams/utils.js';
+import fs from 'fs/promises';
+
+import { currentDirectoryPath } from './utils.js';
 
 const list = async () => {
     const filesPath = currentDirectoryPath('files');
     
     try {
-        await readdir(filesPath)
+        await fs.readdir(filesPath)
         .then(files => files.forEach(file => console.log(file)))
         .catch(err => {
             throw err

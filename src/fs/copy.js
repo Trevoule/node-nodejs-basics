@@ -1,6 +1,7 @@
-import {readFile, writeFile, mkdir, readdir } from 'fs/promises';
-import { currentDirectoryPath, isFileExists } from '../streams/utils.js';
+import fs from 'fs/promises';
 import { join } from 'path';
+
+import { currentDirectoryPath, isFileExists } from './utils.js';
 
 const copy = async () => {
     const originFolderPath = currentDirectoryPath('files');
@@ -11,8 +12,8 @@ const copy = async () => {
         const copyFilePath = join(copyFolderPath, fileName);
 
         try {
-            const sourceFileContent = await readFile(sourceFilePath);
-            await writeFile(copyFilePath, sourceFileContent);
+            const sourceFileContent = await fs.readFile(sourceFilePath);
+            await fs.writeFile(copyFilePath, sourceFileContent);
             console.log('File successfully copied');    
         } catch (err) {
             throw err;
@@ -25,8 +26,8 @@ const copy = async () => {
 
         isOriginFolderPath && !isCopyFolderPath;
             
-        await mkdir(copyFolderPath);
-        const files = await readdir(originFolderPath);
+        await fs.mkdir(copyFolderPath);
+        const files = await fs.readdir(originFolderPath);
         await files.forEach(copyFile);
     } catch (err) {
         throw new Error('FS operation failed');

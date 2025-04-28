@@ -1,4 +1,5 @@
 import fs from 'fs';
+
 import { currentDirectoryPath } from './utils.js';
 
 const read = async () => {

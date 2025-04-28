@@ -1,7 +1,5 @@
 const parseArgs = () => {
     const args = process.argv.slice(2);
-    console.log(args);
-    
 
     const groupedArgs = args.reduce((acc, _, index) => {
         if (index % 2 === 0) {

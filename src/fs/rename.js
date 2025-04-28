@@ -1,5 +1,6 @@
 import { rename as renameFile } from 'fs/promises';
-import { isFileExists, currentDirectoryPath } from '../streams/utils.js';
+
+import { isFileExists, currentDirectoryPath } from './utils.js';
 
 const WRONG_FILE = 'wrongFilename.txt';
 const PROPER_FILE = 'properFilename.md';
