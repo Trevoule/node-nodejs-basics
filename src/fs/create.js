@@ -1,5 +1,18 @@
+import { writeFile } from 'fs/promises';
+import { currentDirectoryPath } from '../streams/utils.js';
+
+const FILE = 'fresh.txt';
+const CONTENT = 'I am fresh and young';
+
 const create = async () => {
-    // Write your code here 
+    const filePath = currentDirectoryPath('files', FILE);
+    
+    try {
+        await writeFile(filePath, CONTENT, { flag: 'wx' });
+        console.log('File created');
+    } catch (err) {
+        throw new Error('FS operation failed');
+    }
 };
 
 await create();
